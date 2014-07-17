@@ -1,5 +1,8 @@
+import os
 import ctypes
 
+DIR = os.path.dirname(os.path.realpath(__file__))
+LIBRARY_PATH = os.path.join(DIR, "libpersons.so")
 
 class Person(ctypes.Structure):
     _fields_ = [
@@ -8,7 +11,7 @@ class Person(ctypes.Structure):
     ]
 
 
-persons_handle = ctypes.cdll.LoadLibrary("/home/jordan/Sandbox/Persons/libperson.so")
+persons_handle = ctypes.cdll.LoadLibrary(LIBRARY_PATH)
 persons_handle.get_person.restype = Person
 person = persons_handle.get_person("Jordan", 21)
 
