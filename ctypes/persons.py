@@ -1,7 +1,7 @@
 import os
 import ctypes
 
-DIR = os.path.dirname(os.path.realpath(__file__))
+DIR = os.path.dirname(__file__)
 LIBRARY_PATH = os.path.join(DIR, "libpersons.so")
 
 class Person(ctypes.Structure):
@@ -11,8 +11,12 @@ class Person(ctypes.Structure):
     ]
 
 
-persons_handle = ctypes.cdll.LoadLibrary(LIBRARY_PATH)
-persons_handle.get_person.restype = Person
-person = persons_handle.get_person("Jordan", 21)
+class PersonProxy(object):
+    def __init__(self):
+        self.handle = ctypes.cdll.LoadLibrary(LIBRARY_PATH)
+        self.handle.get_person.restype = Person
 
-print("The name of the person is {} and the age is {}".format(person.name, person.age))
+    def get_person(self, name, age):
+        person = self.handle.get_person(name, age)
+        return person
+
