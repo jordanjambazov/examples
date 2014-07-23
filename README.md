@@ -6,4 +6,3 @@ This repository is intended to contain various examples used to illustrate usage
 The code should not be used in production, as its purpose was just to share ideas.
 
 ![Sandbox](http://www.karelia.com/images/SandvoxAppIcon.png)
-test
