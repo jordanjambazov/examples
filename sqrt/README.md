@@ -1,6 +1,8 @@
 Writing Own Square Root Function
 ================================
 
+Python implementation of square root function using division strategy.
+
 > Depending on you needs, a simple divide-and-conquer strategy can be used. It won't converge as fast as some other methods but it may be easier for a novice to understand. In addition, since it's an O(log n) algorithm (halving the search space each iteration), the worst case for a 32-bit float will be 32 iterations.
 
 > Let's say you want the square root of 62.104. You pick a value halfway between 0 and that and square it. If the square is higher than your number, you need to concentrate on numbers less than the midpoint. If it's too low, concentrate on those higher.
